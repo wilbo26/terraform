@@ -1,0 +1,8 @@
+#Ignore terraform directories
+.terraform/
+.terraform/plugins/
+.terraform/plugins/windows_amd64/terraform-provider-aws_v2.12.0_x4.exe
+*.exe
+
+#Ignore variable definition:
+terraform.tfvars
