@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami           = "ami-05a36d3b9aa4a17ac"
   instance_type = "t2.micro"
-  key_name      = "AWS_TF_XPS"
+  key_name      = "AWS_XPS_LIN"
 
   provisioner "local-exec" {
     command = "echo ${aws_instance.example.public_ip} > ip_address.txt"
