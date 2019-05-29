@@ -1,3 +1,0 @@
-vsphere_user = "terraform_user"
-vsphere_password = "Abc_1234!"
-vsphere_server = "https://dcxvc01.insightglobal.net"
