@@ -28,6 +28,11 @@ data "vsphere_network" "network" {
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
+data "vsphere_virtual_machine" "template" {
+  name          = "CentOS7_Template"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
+
 #Resource definition to build our test VM
 resource "vsphere_virtual_machine" "vm" {
   name             = "terraform-test"
@@ -36,7 +41,7 @@ resource "vsphere_virtual_machine" "vm" {
 
   num_cpus = 2
   memory   = 1024
-  guest_id = "centos7_64Guest"
+  guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
 
   network_interface {
     network_id = "${data.vsphere_network.network.id}"
@@ -45,5 +50,9 @@ resource "vsphere_virtual_machine" "vm" {
   disk {
     label = "disk0"
     size  = 20
+  }
+
+  clone {
+    template_uuid = "${data.vsphere_virtual_machine.template.id}"
   }
 }
