@@ -10,7 +10,7 @@ provider "vsphere" {
 
 #Define data sources for deploying VM to the DCX test lab.
 data "vsphere_datacenter" "dc" {
-  name = "DCX"
+  name = "DCE VDI"
 }
 
 data "vsphere_datastore" "datastore" {
@@ -19,7 +19,7 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "LAB"
+  name          = "Old"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
