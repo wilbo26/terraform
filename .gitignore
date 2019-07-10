@@ -6,3 +6,7 @@
 
 #Ignore variable definition:
 terraform.tfvars
+
+#Ignore terraform state files
+*.tfstate
+*.backup
